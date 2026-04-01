@@ -1,0 +1,60 @@
+@startuml
+
+actor "Шрек" as Shrek
+actor "Осел" as Donkey
+actor "Дракон" as Dragon
+participant "Фиона" as Fiona
+actor "Лорд Фаркуад" as Lord
+
+Shrek -> Lord : Принимает сделку
+Lord --> Shrek : Утверждает условия
+
+Shrek -> Donkey : Предлагает отправиться в путь
+Donkey --> Shrek : Соглашается
+
+Shrek -> Dragon : Прибывает к башне
+Donkey -> Dragon : Следует за Шреком
+
+Shrek -> Dragon : Начинает сражение
+Donkey -> Dragon : Отвлекает
+
+Dragon --> Shrek : Терпит поражение
+
+Shrek -> Fiona : Находит в башне
+
+alt День
+    Fiona -> Fiona : Находится в человеческой форме
+else Ночь
+    Fiona -> Fiona : Трансформируется в Огра
+end
+
+Shrek -> Fiona : Предлагает покинуть башню
+
+alt Сопротивление
+    Fiona -> Shrek : Отказывается
+    Shrek -> Fiona : Убеждает
+    Fiona --> Shrek : Соглашается
+else Согласие
+    Fiona --> Shrek : Соглашается сразу
+end
+
+Shrek -> Dragon : Покидает башню
+Donkey -> Dragon : Следует
+Dragon -> Shrek : Начинает погоню
+
+Shrek -> Dragon : Убегает
+Donkey -> Dragon : Отвлекает
+Dragon --> Shrek : Теряет из виду
+
+Shrek -> Lord : Доставляет Фиону
+Donkey -> Lord : Сопровождает
+
+alt Человеческая форма
+    Lord -> Fiona : Принимает
+    Lord --> Shrek : Выполняет сделку
+else Форма Огра
+    Lord -> Fiona : Отказывается принимать
+    Lord --> Shrek : Нарушает сделку
+end
+
+@enduml
